@@ -6,5 +6,70 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
-  <body></body>
+  <body>
+    <header>
+      <h1>Play Tic, Tac, Toe</h1>
+      <p>Built with HTML, CSS, JavaScript and - of course - lots of love!</p>
+    </header>
+
+    <main>
+      <aside>
+        <h2>Choose your name</h2>
+        <form>
+          <div>
+            <label for="playerName">Player name</label>
+            <input type="text" id="playerName" name="playerName" />
+          </div>
+          <div>
+            <button type="button">Cancel</button>
+            <button type="submit">Confirm</button>
+          </div>
+        </form>
+      </aside>
+
+      <section id="game-configuration">
+        <ol>
+          <li>
+            <article>
+              <h2>Player1</h2>
+              <h3>Player Name</h3>
+              <p>X</p>
+              <button>Edit</button>
+            </article>
+          </li>
+          <li>
+            <article>
+              <h2>Player2</h2>
+              <h3>Player Name</h3>
+              <p>O</p>
+              <button>Edit</button>
+            </article>
+          </li>
+        </ol>
+        <button>Start New Game</button>
+      </section>
+
+      <section id="active-game">
+        <article>
+          <h3>You won, <span id="winner-name">Player Name</span>!</h3>
+          <p>Click "Start New Game" above, to start a new game!</p>
+        </article>
+
+        <p>It's your turn <span id="active-player-name">Player Name</span></p>
+        <ol>
+          <li></li>
+          <li></li>
+          <li></li>
+
+          <li></li>
+          <li></li>
+          <li></li>
+
+          <li></li>
+          <li></li>
+          <li></li>
+        </ol>
+      </section>
+    </main>
+  </body>
 </html>
