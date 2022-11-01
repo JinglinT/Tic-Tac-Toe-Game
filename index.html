@@ -18,9 +18,9 @@
     <link rel="stylesheet" href="configuration.css" />
     <link rel="stylesheet" href="game.css" />
     <!-- JS, we add app.js at the end since app.js uses functions from other JS files. We need to let them load first-->
-    <script src="app.js" defer></script>
-    <script src="config.js" defer></script>
-    <script src="game.js" defer></script>
+    <script src="scripts/config.js" defer></script>
+    <script src="scripts/game.js" defer></script>
+    <script src="scripts/app.js" defer></script>
   </head>
 
   <body>
@@ -44,7 +44,7 @@
             <input type="text" id="playerName" name="playerName" />
           </div>
           <div>
-            <button type="button" class="btn btn-alt">Cancel</button>
+            <button type="button" class="btn btn-alt" id="cancel-config-btn">Cancel</button>
             <button type="submit" class="btn">Confirm</button>
           </div>
         </form>
