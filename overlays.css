@@ -1,4 +1,4 @@
-/* styles for the overlays, including <aside> and backdrop */
+/* styles for the overlays, including modal and backdrop */
 
 .modal {
   /* once the position is fixed, it's detached from parent, so even tough it's a block element, it doesn't take up the entire width */
