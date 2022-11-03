@@ -1,4 +1,16 @@
 // app.js is to query all needed elements, and use functions from other js files
+let editedPlayer = 0;
+
+const players = [
+  {
+    name: "",
+    symbol: "X",
+  },
+  {
+    name: "",
+    symbol: "O",
+  },
+];
 
 const playerConfigOverlayElement = document.getElementById("config-overlay");
 const backdropElement = document.getElementById("backdrop");
