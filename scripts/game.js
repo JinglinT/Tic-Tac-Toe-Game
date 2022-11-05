@@ -1,13 +1,40 @@
+function resetGameStatus() {
+  activePlayer = 0;
+  currentRound = 0;
+  gameIsOver = false;
+  //reset the <h2> in game over section to the original html, because in endGame(), one line relies on it, and the other line will overwrite it, so we need to recover it
+  gameOverElement.firstElementChild.innerHTML =
+    "You won, <span id='winner-name'>Player Name</span>!";
+  gameOverElement.style.display = "none";
+  let gameBoardIndex = 0;
+  for (let i = 0; i < 3; i++) {
+    for (let j = 0; j < 3; j++) {
+      gameData[i][j] = 0;
+      gameBoardItemElement = gameBoardElement.children[gameBoardIndex];
+      gameBoardIndex += 1;
+      gameBoardItemElement.textContent = "";
+      gameBoardItemElement.classList.remove("disabled");
+    }
+  }
+}
+
 function startNewGame() {
   if (players[0].name === "" || players[1].name === "") {
     alert("Please set custom player names for both players!");
     return;
   }
+
+  resetGameStatus();
+
   gameAreaElement.style.display = "block";
-  activePlayerNameElement.textContent = players[0].name;
+  activePlayerNameElement.textContent = players[activePlayer].name;
 }
 
 function selectGameField(event) {
+  if (gameIsOver === true) {
+    return;
+  }
+
   const selectedRow = event.target.dataset.row - 1;
   const selectedCol = event.target.dataset.col - 1;
 
@@ -18,13 +45,14 @@ function selectGameField(event) {
 
   gameData[selectedRow][selectedCol] = activePlayer + 1;
 
-  console.log(gameData);
-
   event.target.textContent = players[activePlayer].symbol;
   event.target.classList.add("disabled");
 
   const winnerId = checkForGameOver();
-  console.log(winnerId);
+
+  if (winnerId > 0) {
+    endGame(winnerId);
+  }
 
   currentRound += 1;
 
@@ -42,7 +70,7 @@ function switchPlayer() {
 
 function checkForGameOver() {
   // check row
-  for (i = 0; i < 3; i++) {
+  for (let i = 0; i < 3; i++) {
     if (
       gameData[i][0] > 0 &&
       gameData[i][0] === gameData[i][1] &&
@@ -53,7 +81,7 @@ function checkForGameOver() {
   }
 
   // check col
-  for (i = 0; i < 3; i++) {
+  for (let i = 0; i < 3; i++) {
     if (
       gameData[0][i] > 0 &&
       gameData[0][i] === gameData[1][i] &&
@@ -80,4 +108,15 @@ function checkForGameOver() {
 
   //no winning or draw
   return 0;
+}
+
+function endGame(winnerId) {
+  gameIsOver = true;
+  gameOverElement.style.display = "block";
+  if (winnerId > 0) {
+    gameOverElement.firstElementChild.firstElementChild.textContent =
+      players[winnerId - 1].name;
+  } else {
+    gameOverElement.firstElementChild.textContent = "It' s a draw";
+  }
 }

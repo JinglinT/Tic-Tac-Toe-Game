@@ -8,6 +8,7 @@ const gameData = [
 let editedPlayer = 0;
 let activePlayer = 0;
 let currentRound = 1;
+let gameIsOver = false;
 
 const players = [
   {
@@ -27,6 +28,8 @@ const errorOutputElement = document.getElementById("config-error");
 const gameAreaElement = document.getElementById("active-game");
 const gameFieldElements = document.querySelectorAll("#game-board li");
 const activePlayerNameElement = document.getElementById("active-player-name");
+const gameOverElement = document.getElementById("game-over");
+const gameBoardElement = document.getElementById("game-board");
 
 const editPlayer1BtnElement = document.getElementById("edit-player-1-btn");
 const editPlayer2BtnElement = document.getElementById("edit-player-2-btn");
