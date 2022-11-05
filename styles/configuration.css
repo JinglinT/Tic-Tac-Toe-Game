@@ -48,14 +48,16 @@
   list-style: none;
   margin: 0;
   padding: 0;
-  /* this turns the block elements to line up vertically */
+  /* this turns the block elements to line up horizontally */
   display: flex;
 }
 
 #game-configuration li {
   margin: 1rem;
   padding: 1rem;
+  /* the inner box won't overflow the container, only content like text will overflow, here we have 2 <li>, even we set both of them to 999% width, they each will only takes 50% width of the container, so setting both 50% width will evenly allocate space for them, and margin and padding don't take extra space, they are included in that 50%. But if we set them to 30%, which is less than 100%, the content of the box will take 30%, but the margin and padding will take extra space on top of that 30%*/
   width: 50%;
+  /* we don't set the height, let the content like <h2>, <h3> and <button> to decide the height */
   background-color: rgb(243, 227, 255);
   border-radius: 4px;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);

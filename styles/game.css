@@ -1,7 +1,7 @@
 #active-game {
   text-align: center;
   margin: 2rem 0 5rem 0;
-  display: none;
+  /* display: none; */
 }
 
 #game-over {
@@ -58,6 +58,7 @@
 /* the class disabled will be added by JS when a <li> is clicked */
 #game-board li.disabled {
   background-color: rgb(112, 13, 204);
+  /* when clicked, the text turns white, but when it's not clicked or cursor hovering over, the text is black by default, becasue we didn't set the color in the above 2 css selectors */
   color: white;
   cursor: default;
 }

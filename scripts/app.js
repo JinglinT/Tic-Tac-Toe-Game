@@ -1,5 +1,6 @@
 // app.js is to query all needed elements, and use functions from other js files
 let editedPlayer = 0;
+let activePlayer = 0;
 
 const players = [
   {
@@ -17,6 +18,8 @@ const backdropElement = document.getElementById("backdrop");
 const formElement = document.querySelector("form");
 const errorOutputElement = document.getElementById("config-error");
 const gameAreaElement = document.getElementById("active-game");
+const gameFieldElements = document.querySelectorAll("#game-board li");
+const activePlayerNameElement = document.getElementById("active-player-name");
 
 const editPlayer1BtnElement = document.getElementById("edit-player-1-btn");
 const editPlayer2BtnElement = document.getElementById("edit-player-2-btn");
@@ -32,3 +35,7 @@ backdropElement.addEventListener("click", closePlayerConfig);
 formElement.addEventListener("submit", savePlayerconfig);
 
 startNewGameBtnElement.addEventListener("click", startNewGame);
+
+for (const li of gameFieldElements) {
+  li.addEventListener("click", selectGameField);
+}
