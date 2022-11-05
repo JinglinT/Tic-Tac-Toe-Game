@@ -1,4 +1,10 @@
-// app.js is to query all needed elements, and use functions from other js files
+// app.js is to query all needed global elements, and use functions from other js files
+const gameData = [
+  [0, 0, 0],
+  [0, 0, 0],
+  [0, 0, 0],
+];
+
 let editedPlayer = 0;
 let activePlayer = 0;
 
@@ -36,6 +42,7 @@ formElement.addEventListener("submit", savePlayerconfig);
 
 startNewGameBtnElement.addEventListener("click", startNewGame);
 
+//there is another way to add listener to all <li> by adding listener to <ol>, see 136) 11:37
 for (const li of gameFieldElements) {
   li.addEventListener("click", selectGameField);
 }
